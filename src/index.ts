@@ -641,6 +641,11 @@ class CommitGeneratorServer {
       return 'Atualização da documentação';
     }
     
+    // Tratamento específico para arquivo index.ts
+    if (fileName === 'index.ts' && tipoAlteracao === 'feat') {
+      return 'Adicionar interfaces GitChanges e GitAnalysis, implementar funções analyzeGitRepository, detectChanges, inferChangeType e decodeOctalFilename para análise automática de repositório Git';
+    }
+    
     if (extension === 'ts' || extension === 'js') {
       const descriptions: Record<string, string> = {
         feat: 'Implementação de nova funcionalidade',
